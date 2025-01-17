@@ -6,7 +6,7 @@ const connectDB = async () => {
 
         // Connecting to MongoDB
         await mongoose.connect(
-            "mongodb+srv://ananya01mishra08:fullstackproject@cluster0.2sfk2.mongodb.net/prescripto",
+           "mongodb+srv://ananya01mishra08:fullstackproject@cluster0.2sfk2.mongodb.net",
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
