@@ -5,13 +5,10 @@ const connectDB = async () => {
         mongoose.connection.on('connected', () => console.log("Database Connected"));
 
         // Connecting to MongoDB
-        await mongoose.connect(
-           "mongodb+srv://ananya01mishra08:fullstackproject@cluster0.2sfk2.mongodb.net",
-            {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-            }
-        );
+        await mongoose.connect(`${process.env.MONGODB_URI}/FULLSTACKPROJECT`, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
 
     } catch (error) {
         console.error("Database connection error:", error.message);
