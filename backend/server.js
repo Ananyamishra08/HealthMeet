@@ -9,7 +9,7 @@ import adminRouter from "./routes/adminRoute.js"
 
 // app config
 const app = express()
-const port = process.env.PORT || 4000
+const frontend_url = "https://healthmeet-frontend.onrender.com"
 connectDB()
 connectCloudinary()
 
@@ -26,4 +26,4 @@ app.get("/", (req, res) => {
   res.send("API Working")
 });
 
-app.listen(port, () => console.log(`Server started on PORT:${port}`))
+app.listen(frontend_url, () => console.log(`Server started on URL:${frontend_url}`))
