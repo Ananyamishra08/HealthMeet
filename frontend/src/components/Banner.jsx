@@ -16,6 +16,12 @@ const Banner = () => {
                     <p className='mt-4'>With 100+ Trusted Doctors</p>
                 </div>
                 <button onClick={() => { navigate('/login'); scrollTo(0, 0) }} className='bg-white text-sm sm:text-base text-[#595959] px-8 py-3 rounded-full mt-6 hover:scale-105 transition-all '>Create account</button>
+                <button
+        onClick={() => window.location.href = 'https://healthmeet-admin.onrender.com'}
+        className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+      >
+        Admin Panel
+      </button>
             </div>
 
             {/* ------- Right Side ------- */}
