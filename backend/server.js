@@ -9,13 +9,26 @@ import adminRouter from "./routes/adminRoute.js"
 
 // app config
 const app = express()
-const frontend_url = "https://healthmeet-frontend.onrender.com"
+const port = process.env.PORT || 4000
 connectDB()
 connectCloudinary()
 
+const allowedOrigins = [
+    "https://healthmeet-frontend.onrender.com",
+    "https://healthmeet-admin.onrender.com",
+];
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+        origin: function (origin, callback) {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error("Not allowed by CORS"));
+            }
+        },
+        credentials: true,
+    }))
 
 // api endpoints
 app.use("/api/user", userRouter)
@@ -26,4 +39,4 @@ app.get("/", (req, res) => {
   res.send("API Working")
 });
 
-app.listen(frontend_url, () => console.log(`Server started on URL:${frontend_url}`))
+app.listen(port, () => console.log(`Server started on PORT:${port}`))
