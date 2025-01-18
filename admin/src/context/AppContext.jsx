@@ -5,8 +5,8 @@ export const AppContext = createContext()
 
 const AppContextProvider = (props) => {
 
-    const currency = "INR"
-    const backendUrl = "https://healthmeet.onrender.com"
+    export const currency = "INR"
+    export const backendUrl = "https://healthmeet.onrender.com"
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
