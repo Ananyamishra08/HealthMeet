@@ -7,7 +7,7 @@ export const AdminContext = createContext()
 
 const AdminContextProvider = (props) => {
 
-    export const backendUrl = "https://healthmeet.onrender.com"
+    const backendUrl = "https://healthmeet.onrender.com"
 
     const [aToken, setAToken] = useState(localStorage.getItem('aToken') ? localStorage.getItem('aToken') : '')
 
