@@ -15,7 +15,9 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+const cors = require('cors');
+app.use(cors({ origin: ['https://healthmeet-admin.onrender.com', 'https://healthmeet-1.onrender.com'] }));
+
 
 // api endpoints
 app.use("/api/user", userRouter)
