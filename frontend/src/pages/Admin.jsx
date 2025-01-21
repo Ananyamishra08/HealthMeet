@@ -3,7 +3,7 @@ import React from 'react'
 function Admin() {
     const navigateToAdmin = () => {
         // Replace this URL with your Admin app's URL
-        window.location.href = import.meta.env.VITE_ADMIN_URL;
+        window.location.href = "https://healthmeet-admin.onrender.com"
     };
 return (
 <div className='flex flex-col items-center justify-center gap-6 text-gray-600 mt-8'>
