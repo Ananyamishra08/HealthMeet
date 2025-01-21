@@ -12,8 +12,8 @@ const loginAdmin = async (req, res) => {
 
         const { email, password } = req.body
 
-        if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
-            const token = jwt.sign(email + password, process.env.JWT_SECRET)
+        if (email === "admin@healthMeet.com" && password === "admin@123") {
+            const token = jwt.sign(email + password, "HealthMeet")
             res.json({ success: true, token })
         } else {
             res.json({ success: false, message: "Invalid credentials" })
