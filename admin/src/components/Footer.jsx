@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     const navigateToHome = () => {
         // Replace this URL with your frontend app URL
-        window.location.href = import.meta.env.VITE_FRONTEND_URL;
+        window.location.href = "https://healthmeet-1.onrender.com";
     };
 return (
         <div className='flex flex-col items-center justify-center gap-4 mt-2'>
