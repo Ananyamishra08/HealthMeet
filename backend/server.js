@@ -18,7 +18,7 @@ app.use(express.json())
 app.use(cors({
   origin: 'https://healthmeet.netlify.app',  // Replace with your Netlify domain
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow appropriate methods
-  allowedHeaders: ['Content-Type', 'Authorization']  // Specify headers
+  allowedHeaders: ['Content-Type', 'Authorization','atoken']  // Specify headers
 }));
 
 // Example route for login
