@@ -15,7 +15,17 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors({ origin: ['https://healthmeet.netlify.app/', 'https://healthmeet-1.onrender.com'] }));
+app.use(cors({
+  origin: 'https://healthmeet.netlify.app',  // Replace with your Netlify domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow appropriate methods
+  allowedHeaders: ['Content-Type', 'Authorization']  // Specify headers
+}));
+
+// Example route for login
+app.post('/api/admin/login', (req, res) => {
+  // Your login logic here
+  res.send({ success: true });
+});
 
 
 // api endpoints
