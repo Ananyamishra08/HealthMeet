@@ -17,31 +17,42 @@ const Login = () => {
   const { setAToken } = useContext(AdminContext)
 
   const onSubmitHandler = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
+  try {
+    let data;
     if (state === 'Admin') {
+      const response = await axios.post(backendUrl + '/api/admin/login', { email, password });
+      data = response.data;
+      console.log("Received Token:", data.token);  // ✅ Log token from backend
 
-      const { data } = await axios.post(backendUrl + '/api/admin/login', { email, password })
       if (data.success) {
-        setAToken(data.token)
-        localStorage.setItem('aToken', data.token)
+        setAToken(data.token);
+        localStorage.setItem('aToken', data.token);
       } else {
-        toast.error(data.message)
+        toast.error(data.message);
       }
 
     } else {
+      const response = await axios.post(backendUrl + '/api/doctor/login', { email, password });
+      data = response.data;
+      console.log("Received Token:", data.token);  // ✅ Log token from backend
 
-      const { data } = await axios.post(backendUrl + '/api/doctor/login', { email, password })
       if (data.success) {
-        setDToken(data.token)
-        localStorage.setItem('dToken', data.token)
+        setDToken(data.token);
+        localStorage.setItem('dToken', data.token);
       } else {
-        toast.error(data.message)
+        toast.error(data.message);
       }
-
     }
 
+    console.log("Stored Token:", localStorage.getItem("aToken"));  // ✅ Check if it's stored correctly
+
+  } catch (error) {
+    console.error("Login Error:", error);
+    toast.error("Login failed, please try again.");
   }
+};
 
   return (
     <form onSubmit={onSubmitHandler} className='min-h-[80vh] flex items-center'>
