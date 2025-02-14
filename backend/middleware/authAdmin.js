@@ -1,21 +1,29 @@
-import jwt from "jsonwebtoken"
+import jwt from 'jsonwebtoken';
 
-// admin authentication middleware
-const authAdmin = async (req, res, next) => {
+const authAdmin = (req, res, next) => {
     try {
-        const { atoken } = req.headers
-        if (!atoken) {
-            return res.json({ success: false, message: 'Not Authorized Login Again' })
+        // Extract the token from the Authorization header
+        const authHeader = req.headers.authorization;
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return res.status(401).json({ success: false, message: 'Authorization token missing or malformed.' });
         }
-        const token_decode = jwt.verify(atoken, process.env.JWT_SECRET)
-        if (token_decode !== process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD) {
-            return res.json({ success: false, message: 'Not Authorized Login Again' })
+        const token = authHeader.split(' ')[1];
+
+        // Verify the token
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+
+        // Check if the token contains the expected email and role
+        if (decodedToken.email !== process.env.ADMIN_EMAIL || decodedToken.role !== 'admin') {
+            return res.status(403).json({ success: false, message: 'Access denied. Admins only.' });
         }
-        next()
+
+        // Attach user information to the request object
+        req.user = decodedToken;
+        next();
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: error.message })
+        console.error('Authentication error:', error);
+        res.status(401).json({ success: false, message: 'Invalid or expired token. Please log in again.' });
     }
-}
+};
 
 export default authAdmin;
