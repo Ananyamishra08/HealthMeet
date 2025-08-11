@@ -22,7 +22,7 @@ Health Meet is a MERN-based doctor appointment platform that lets patients find 
 ---
 
 ## Project Structure
-> ![Project stru Screenshot](src/assets/jsonschemaimg.png)
+> ![Project stru Screenshot]("./proj structure.png")
 
 
 ---
@@ -49,3 +49,4 @@ cd ../admin && npm install
 
 
 Author: Ananya
+
