@@ -1,6 +1,6 @@
-# Health Meat
+# Health Meet
 
-Health Meat is a MERN-based doctor appointment platform that lets patients find doctors, book/cancel/complete appointments, and handle payments. Admins manage doctors, users, and platform data.
+Health Meet is a MERN-based doctor appointment platform that lets patients find doctors, book/cancel/complete appointments, and handle payments. Admins manage doctors, users, and platform data.
 
 ---
 
@@ -22,7 +22,7 @@ Health Meat is a MERN-based doctor appointment platform that lets patients find 
 ---
 
 ## Project Structure
-
+> ![Project stru Screenshot](src/assets/jsonschemaimg.png)
 
 
 ---
@@ -37,13 +37,14 @@ Health Meat is a MERN-based doctor appointment platform that lets patients find 
 ### Setup
 ```bash
 # clone your repo
-git clone https://github.com/<your-username>/<your-repo>.git health-meat
-cd health-meat
+git clone https://github.com/<your-username>/<your-repo>.git health-meet
+cd health-meet
 
 # install
 cd backend && npm install
 cd ../frontend && npm install
 cd ../admin && npm install
+
 
 
 
